@@ -1,7 +1,5 @@
 # push_swap
 
-🚧 **Project under evaluation** 🚧
-
 ## About the project
 
 - **Objective**: Sort a list of integers using only restricted operations between two stacks (A and B).
