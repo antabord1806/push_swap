@@ -20,7 +20,7 @@
 
 typedef struct s_stack
 {
-	int				number;
+	long			number;
 	int				idx;
 	int				rr;
 	int				rrr;

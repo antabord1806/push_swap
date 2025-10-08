@@ -94,6 +94,7 @@ int	ft_isduplicate(t_stack **stack)
 			if (current->number == checking->number)
 			{
 				freedom_stack(stack);
+				ft_err();
 				return (0);
 			}
 			checking = checking->next;
@@ -116,8 +117,7 @@ void	parser(t_stack **stack, char **av)
 			ft_err();
 		ft_memset(new, 0, sizeof(t_stack));
 		new->number = ft_atol(av[i]);
-		if (new->number > INT_MAX || new->number < INT_MIN
-			|| !is_it_too_big(av[i]))
+		if (new->number > INT_MAX || new->number < INT_MIN)
 		{
 			freedom_stack(stack);
 			free(new);
