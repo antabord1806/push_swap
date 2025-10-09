@@ -19,7 +19,7 @@ void	move_target_to_top_or_push_b(t_stack *target, t_stack **stack_a,
 	{
 		while (*stack_a != target)
 		{
-			if (target->idx >= lst_size(stack_a) / 2)
+			if (target->idx > lst_size(stack_a) / 2)
 				rra(stack_a);
 			else
 				ra(stack_a);

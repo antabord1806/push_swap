@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc <= 1)
-		ft_err();
+		return (0);
 	argv = join_args(argc, argv);
 	parser(&stack_a, argv);
 	if (!ft_isduplicate(&stack_a))
