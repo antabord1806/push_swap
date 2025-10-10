@@ -115,7 +115,6 @@ void	parser(t_stack **stack, char **av)
 		new = malloc(sizeof(t_stack));
 		if (!new)
 			ft_err();
-		ft_memset(new, 0, sizeof(t_stack));
 		new->number = ft_atol(av[i]);
 		if (new->number > INT_MAX || new->number < INT_MIN)
 		{

@@ -6,7 +6,7 @@ NAME = push_swap
 
 SRC = adding_to_lst.c ft_err.c push_swap.c add_index.c check_stack.c \
       rotate.c push.c reverse_rotate.c swap.c 1st_push_cycle.c 2nd_push_cycle.c \
-      ft_split.c ft_strjoin.c ft_memset.c \
+      ft_split.c ft_strjoin.c \
 
 OBJ = $(SRC:.c=.o)
 
