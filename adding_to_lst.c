@@ -92,11 +92,7 @@ int	ft_isduplicate(t_stack **stack)
 		while (checking != NULL)
 		{
 			if (current->number == checking->number)
-			{
-				freedom_stack(stack);
-				ft_err();
 				return (0);
-			}
 			checking = checking->next;
 		}
 		current = current->next;
@@ -123,6 +119,8 @@ void	parser(t_stack **stack, char **av)
 			freedom(av);
 			ft_err();
 		}
+		new->idx = 0;
+		new->next = NULL;
 		ft_lstadd_back_mod(stack, new);
 		i++;
 	}

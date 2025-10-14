@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 		return (freedom(argv), 0);
 	parser(&stack_a, argv);
 	if (!ft_isduplicate(&stack_a))
-		return (freedom(argv), freedom_stack(&stack_a), 0);
+		return (freedom(argv), freedom_stack(&stack_a), ft_err(), 0);
 	add_index(&stack_a, &stack_b);
 	if (check_if_sorted(&stack_a, 1) || check_if_3(&stack_a))
 		return (freedom(argv), freedom_stack(&stack_a), 0);
