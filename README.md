@@ -5,7 +5,6 @@
 * **Objective**: Write a C program that sorts a stack of integers using the **minimum number of operations**. The program must implement a sorting algorithm that operates on a restricted set of moves and may use **one extra empty stack**.
 * **Must-have**: Before starting the project, it is essential to understand the concept of **algorithmic complexity**.
 
----
 
 ## Allowed Operations
 
@@ -14,7 +13,6 @@
 * `ra`, `rb`, `rr` — Rotate all elements upwards.
 * `rra`, `rrb`, `rrr` — Rotate all elements downwards.
 
----
 
 ## How It Works
 
@@ -58,7 +56,6 @@ rra
 pa
 ```
 
----
 
 ## My Approach
 
@@ -87,20 +84,17 @@ The algorithm works in **two main phases**: pushing elements to stack **B** and 
 
 8. **Final merge**: Rotate stack **A** so that each target is on top, then push all elements from **B** back to **A**.
 
----
 
 ## Limitations of My Approach
 
 While this algorithm performs very efficiently with smaller input sizes, it does not scale as well for larger datasets. This is mainly because some combined operations are not fully accounted for during cost calculation, which can lead the algorithm to select suboptimal node pairs. Improving this aspect is a goal for future work.
 
----
 
 ## Main Challenge
 
 * The biggest challenge in this project was **visualizing the algorithm’s behavior during execution**.
 * Sketching diagrams, breaking down steps, and writing pseudocode were essential to understanding the logic, organizing operations, and implementing the solution correctly.
 
----
 
 ## Closing Remarks
 
