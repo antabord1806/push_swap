@@ -32,8 +32,24 @@ pa`
 
 ## My approach
 
-In order to complete this project one must get to know th concept of algoritm complexity;
+I chose the algoritm Turksort, why?
+- Since it works directly with the stack nodes, it's easier to visualize;
+- It's the least complex algoritm;
 
+This algoritm works in 2 phases: pushing to B and pushing to A, but the "meat" is in what to do before pushing;
+
+1- one must do some parsing of the arguments recieved, reject non numeric char, repeated instances and anything that would overflow the int;
+
+2- Then imedeatly push 2 nodes to B, making sure that theres more then 3 nodes in A;
+
+3- For each number in A I need to find its target in B, that being the number in B that is the closest bigger number, and if there isnt any, the target is the biggest number in B;
+
+` 4
+ 2
+ 9
+ 1
+--
+ A`
 
 
 ## Main challenge
