@@ -17,17 +17,30 @@
 `make`
 
 - The program receives the numbers as command-line arguments.
-`./push_swap 9 1 6 4 2`
+`./push_swap 9 1 6 4 2 8 10`
 
 - It runs the sorting algorithm and prints the sequence of operations performed to sort the list.
-`./push_swap 9 1 6 4 2
+`./push_swap 9 1 6 4 2 8 10
 pb
 pb
-sa
+rr
+rra
+rb
+pb
+rr
+rra
+pb
+ra
+pa
 rra
 pa
+rra
 pa
-ra
+rra
+pa
+rra
+rra
+rra
 pa`
 
 ## My approach
@@ -40,16 +53,19 @@ This algoritm works in 2 phases: pushing to B and pushing to A, but the "meat" i
 
 1- one must do some parsing of the arguments recieved, reject non numeric char, repeated instances and anything that would overflow the int;
 
-2- Then imedeatly push 2 nodes to B, making sure that theres more then 3 nodes in A;
+2- Then imeadetly push 2 nodes to B, making sure that theres more then 3 nodes in A;
 
 3- For each number in A I need to find its target in B, that being the number in B that is the closest bigger number, and if there isnt any, the target is the biggest number in B;
 
-` 4
- 2
- 9
- 1
-stack A `
+4- For each combination of nbr + target i need to find the "cheapest", the pair that takes less moves to get on top their repective stacks, i also need to bare in mind that a number being in the first or second half of the stack influences the kinds of moves that i'm counting, for example, a `ra` could become a `rra`, so the nodes closest to the ends of the stack are usually the cheapest ones. To save moves I also considered that if both the stack A and B would preform the same move, I could replace it with a double move like `rr` or `rrr`.
 
+5- Push the cheapest node to B and repeat the process until there are only 3 nodes in A;
+
+6- Do a bubble sort on he 3 numbrs in A and find in A targets for each number in B, but now im seeking for the closest smaller number and if there isnt any, the smallest;
+
+7- Rotate only stack A in order for the traget of each B node to be on top;
+
+8- Push everything to A;
 
 ## Main challenge
 
