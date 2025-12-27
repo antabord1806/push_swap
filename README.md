@@ -1,26 +1,40 @@
 # push_swap
 
-## About the project
+## About the Project
 
-- **Objective**: Writing a C program that uses the least amount of moves to sort a stack of integers. To do so I have o implement a sorting algoritm that uses a specified move set and i can also make use of one etra empty stack.
-- **Must have**: Before starting the project, one must get familiarized with the concept of algortimic complexity
+* **Objective**: Write a C program that sorts a stack of integers using the **minimum number of operations**. The program must implement a sorting algorithm that operates on a restricted set of moves and may use **one extra empty stack**.
+* **Must-have**: Before starting the project, it is essential to understand the concept of **algorithmic complexity**.
 
-## Allowed operations
+---
 
-- `sa`, `sb`, `ss`: Swap the first two elements of the stack.
-- `pa`, `pb`: Move the top element from one stack to the other.
-- `ra`, `rb`, `rr`: Rotate all elements upwards.
-- `rra`, `rrb`, `rrr`: Rotate all elements downwards.
+## Allowed Operations
 
-## How it works
+* `sa`, `sb`, `ss` — Swap the first two elements of a stack.
+* `pa`, `pb` — Push the top element from one stack to the other.
+* `ra`, `rb`, `rr` — Rotate all elements upwards.
+* `rra`, `rrb`, `rrr` — Rotate all elements downwards.
 
-`make`
+---
 
-- The program receives the numbers as command-line arguments.
-`./push_swap 9 1 6 4 2 8 10`
+## How It Works
 
-- It runs the sorting algorithm and prints the sequence of operations performed to sort the list.
-`./push_swap 9 1 6 4 2 8 10
+### Compilation
+
+```bash
+make
+```
+
+### Execution
+
+The program receives the numbers as command-line arguments:
+
+```bash
+./push_swap 9 1 6 4 2 8 10
+```
+
+It then runs the sorting algorithm and prints the sequence of operations required to sort the stack:
+
+```bash
 pb
 pb
 rr
@@ -41,34 +55,56 @@ pa
 rra
 rra
 rra
-pa`
+pa
+```
 
-## My approach
+---
 
-I chose the algoritm Turksort, why?
-- Since it works directly with the stack nodes, it's easier to visualize;
-- It's the least complex algoritm;
+## My Approach
 
-This algoritm works in 2 phases: pushing to B and pushing to A, but the "meat" is in what to do before pushing;
+I chose the **Turksort** algorithm for the following reasons:
 
-1- one must do some parsing of the arguments recieved, reject non numeric char, repeated instances and anything that would overflow the int;
+* It operates directly on stack nodes, making it easier to visualize.
+* It has relatively low algorithmic complexity.
 
-2- Then imeadetly push 2 nodes to B, making sure that theres more then 3 nodes in A;
+The algorithm works in **two main phases**: pushing elements to stack **B** and then pushing them back to stack **A**. However, the core complexity lies in deciding *when* and *what* to push.
 
-3- For each number in A I need to find its target in B, that being the number in B that is the closest bigger number, and if there isnt any, the target is the biggest number in B;
+### Step-by-step logic
 
-4- For each combination of nbr + target i need to find the "cheapest", the pair that takes less moves to get on top their repective stacks, i also need to bare in mind that a number being in the first or second half of the stack influences the kinds of moves that i'm counting, for example, a `ra` could become a `rra`, so the nodes closest to the ends of the stack are usually the cheapest ones. To save moves I also considered that if both the stack A and B would preform the same move, I could replace it with a double move like `rr` or `rrr`.
+1. **Input parsing**: Validate the arguments by rejecting non-numeric characters, duplicate values, and numbers that overflow an `int`.
 
-5- Push the cheapest node to B and repeat the process until there are only 3 nodes in A;
+2. **Initial setup**: Push two nodes from stack **A** to stack **B**, ensuring that at least three nodes remain in **A**.
 
-6- Do a bubble sort on he 3 numbrs in A and find in A targets for each number in B, but now im seeking for the closest smaller number and if there isnt any, the smallest;
+3. **Target selection (A → B)**: For each number in **A**, determine its target in **B**. The target is the closest larger number in **B**; if none exists, the target is the largest number in **B**.
 
-7- Rotate only stack A in order for the traget of each B node to be on top;
+4. **Cost calculation**: For each `(number, target)` pair, compute the cost to bring both nodes to the top of their respective stacks. The algorithm accounts for whether nodes are in the first or second half of a stack, since this affects whether rotations (`ra`) or reverse rotations (`rra`) are cheaper. When possible, combined operations such as `rr` or `rrr` are used to reduce the total number of moves.
 
-8- Push everything to A;
+5. **Push cheapest node**: Push the node with the lowest calculated cost to stack **B** and repeat the process until only three nodes remain in **A**.
 
-## Main challenge
+6. **Sort remaining nodes**: Sort the three remaining nodes in **A** using a simple bubble-sort-like logic.
 
-- The greatest challenge in this project was visualizing how the algorithm works during development.
-- Sketching out the steps and writing pseudocode helped a lot to understand the logic, organize the operations, and implement the solution efficiently.
+7. **Target selection (B → A)**: For each number in **B**, find its target in **A**. This time, the target is the closest smaller number; if none exists, the smallest number in **A**.
+
+8. **Final merge**: Rotate stack **A** so that each target is on top, then push all elements from **B** back to **A**.
+
+---
+
+## Limitations of My Approach
+
+While this algorithm performs very efficiently with smaller input sizes, it does not scale as well for larger datasets. This is mainly because some combined operations are not fully accounted for during cost calculation, which can lead the algorithm to select suboptimal node pairs. Improving this aspect is a goal for future work.
+
+---
+
+## Main Challenge
+
+* The biggest challenge in this project was **visualizing the algorithm’s behavior during execution**.
+* Sketching diagrams, breaking down steps, and writing pseudocode were essential to understanding the logic, organizing operations, and implementing the solution correctly.
+
+---
+
+## Closing Remarks
+
+This project was an excellent opportunity to deepen my understanding of sorting algorithms and algorithmic complexity. It also helped me significantly improve my skills in implementing and working with **linked lists** in C.
+
+
 
