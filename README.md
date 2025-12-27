@@ -48,8 +48,7 @@ This algoritm works in 2 phases: pushing to B and pushing to A, but the "meat" i
  2
  9
  1
-
-stack A`
+stack A `
 
 
 ## Main challenge
