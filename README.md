@@ -90,8 +90,8 @@ The algorithm works in **two main phases**: pushing elements to stack **B** and 
 While this algorithm performs very efficiently with smaller input sizes, it does not scale as well for larger datasets. This is mainly because some combined operations are not fully accounted for during cost calculation, which can lead the algorithm to select suboptimal node pairs. Improving this aspect is a goal for future work.
 
 <p align="center">
- <img src="assets/pus swap 100 nbr.gif" alt="graph1" width="400">
- <img src="assets/push swap 500 nbr.gif" alt="graph2" width="400">
+ <img src="assets/pus swap 100 nbr.gif" alt="graph1" width="300">
+ <img src="assets/push swap 500 nbr.gif" alt="graph2" width="300">
 </p>
 
 ## Main Challenge
