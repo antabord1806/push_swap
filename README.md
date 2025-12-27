@@ -16,13 +16,17 @@
 
 ## How It Works
 
-### Compilation
+```bash
+git@github.com:antabord1806/push_swap.git push_swap
+```
+
+```bash
+cd push_swap
+```
 
 ```bash
 make
 ```
-
-### Execution
 
 The program receives the numbers as command-line arguments:
 
