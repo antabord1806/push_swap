@@ -12,7 +12,7 @@
 
 ## Algorithm used
 
-- **Turksort**: This algorithm divides the list into smaller parts, sorts each part, and then efficiently combines them, reducing the total number of operations.
+- **Turksort**: This algorithm divides the list into smaller parts, sorts each part, and then combines them, reducing the total number of operations.
 
 ## Allowed operations
 
@@ -26,6 +26,3 @@
 - The greatest challenge in this project was visualizing how the algorithm works during development.
 - Sketching out the steps and writing pseudocode helped a lot to understand the logic, organize the operations, and implement the solution efficiently.
 
-## Author
-
-- Developed by [antabord1806](https://github.com/antabord1806).
